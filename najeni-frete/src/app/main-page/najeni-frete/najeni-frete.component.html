@@ -1,1 +1,47 @@
-<p>najeni-frete works!</p>
+<div class="najeni-container">
+  <div>
+    <h1 class="najeni-title" @fadeIn>
+      Desapega Naomi
+      <span class="star" aria-hidden="true">{{ star() }}</span>
+    </h1>
+    <h3 @fadeIn>⋆. 𐙚 ̊Calcule frete de entrega do seu pedido.𖥔 ݁ ˖</h3>
+    <div class="najeni-card">
+      <mat-form-field appearance="outline" @fadeIn>
+        <input
+          cepFormat
+          class="najeni-input"
+          matInput
+          maxlength="9"
+          [formControl]="cepControl"
+        />
+        <mat-icon matSuffix>explore</mat-icon>
+        <mat-label>Insira seu CEP</mat-label>
+        <mat-error *ngIf="cepControl.hasError('invalid')"
+          >CEP Inválido (｡•́︿•̀｡)</mat-error
+        >
+      </mat-form-field>
+
+      <button
+        mat-button
+        class="najeni-button"
+        @fadeIn
+        (click)="calculateFrete()"
+      >
+        Calcular Freteˎˊ˗
+      </button>
+    </div>
+
+    <app-frete-table
+      *ngIf="tableData.length >= 1"
+      @fadeIn
+      [data]="tableData"
+    ></app-frete-table>
+  </div>
+
+  <div class="najeni-footer" @slideBottom>
+    <a href="https://www.instagram.com/naomii.desapegos/"
+      ><i class="fab fa-instagram instagram-icon"></i> @naomii.desapegos no
+      instragram! ⸜(｡˃ ᵕ ˂ )⸝♡</a
+    >
+  </div>
+</div>

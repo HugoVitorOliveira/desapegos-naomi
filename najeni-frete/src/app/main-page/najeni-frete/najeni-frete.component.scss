@@ -1,0 +1,104 @@
+@import "../../../assets/styles/variables";
+
+body {
+  background-color: $color-background;
+}
+
+.najeni-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  color: $color-paragraph;
+  text-align: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.najeni-container > div {
+  margin-top: -200px;
+}
+.najeni-texts {
+  flex: 1;
+  margin-bottom: 20vh;
+}
+
+.najeni-card {
+  display: flex;
+  align-items: center;
+  flex: 3;
+  flex-flow: column wrap;
+  margin: 10px;
+  margin-top: 2rem;
+  flex-shrink: 0;
+}
+
+.najeni-input {
+  text-align: center;
+  font-size: 1rem !important;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+  line-height: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.najeni-title {
+  color: $color-main;
+  font-size: 3.2rem;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.najeni-button {
+  margin-top: 15px;
+  width: 160px;
+  height: 50px;
+  background-color: $color-button-bg;
+  color: $color-button-text !important;
+  font-size: 1rem !important;
+}
+
+.najeni-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  z-index: 10;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: $color-tertiary;
+
+  a {
+    text-decoration: none !important;
+  }
+
+  i {
+    margin-right: 2px;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #dbaedb inset !important;
+  background-color: #dbaedb !important;
+  -webkit-text-fill-color: $color-paragraph !important;
+  font-size: 1.25rem !important;
+  transition: background-color 9999s ease-out, color 9999s ease-out !important;
+}
+
+.star {
+  display: inline-block;
+  width: 3em;
+  height: 1.25em;
+  text-align: left;
+  overflow: hidden;
+  font-size: inherit;
+  z-index: 10;
+}
+
+mat-error {
+  margin: 5px;
+}

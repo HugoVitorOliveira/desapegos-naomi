@@ -1,65 +1,51 @@
 import { Injectable } from '@angular/core';
-import { EstadoEnum } from '../enums/estados.enum';
-import { RegiaoEnum } from '../enums/regiao.enum';
+import { tabelaFrete } from '../utils/frete.tabela';
+import { tabelaPrazo } from '../utils/prazo.tabela';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CalculaFreteService {
-  constructor() {}
-
-  private readonly valorBase = 10; // valor fixo para o frete (base)
-  private readonly custoPorPeso = 2; // Custo adicional por quilo de peso (R$ 2 por kg)
-
-  // Tabela de preços por distância (aproximação para Correios)
-  private readonly tabelaPrecoPorRegiao: Record<
-    RegiaoEnum,
-    { distancia: number; precoBase: number }
-  > = {
-    [RegiaoEnum.Sul]: { distancia: 800, precoBase: 20 },
-    [RegiaoEnum.Sudeste]: { distancia: 600, precoBase: 15 },
-    [RegiaoEnum.CentroOeste]: { distancia: 700, precoBase: 18 },
-    [RegiaoEnum.Norte]: { distancia: 1500, precoBase: 30 },
-    [RegiaoEnum.Nordeste]: { distancia: 1200, precoBase: 25 },
+  private origem = {
+    cep: '85201126',
+    cidade: 'Pitanga',
+    uf: 'PR',
   };
 
-  // Função que calcula a distância (simulação baseada nas regiões)
-  private calcularDistancia(regiao: RegiaoEnum): number {
-    return this.tabelaPrecoPorRegiao.find?.distancia ?? 0;
+  private tabelaFrete = tabelaFrete;
+
+  private tabelaPrazo = tabelaPrazo;
+
+  constructor() {}
+
+  /**
+   * Calcula uma estimativa de frete baseado no UF de destino
+   * @param uf UF do estado de destino (ex: 'SP', 'RJ', 'AM')
+   * @returns Um objeto com o valor mínimo e máximo do frete estimado
+   */
+  calcularEstimativaFrete(uf: string): {
+    valorMinimo: number;
+    valorMaximo: number;
+  } {
+    const ufUpper = uf.toUpperCase();
+
+    const estimativa = this.tabelaFrete[ufUpper];
+    return {
+      valorMinimo: estimativa.min,
+      valorMaximo: estimativa.max,
+    };
   }
 
-  // Função que calcula o preço do frete considerando distância e peso
-  calcularFrete(
-    estadoDestino: EstadoEnum,
-    peso: number,
-    tipoServico: 'normal' | 'expresso'
-  ): number {
-    const regiao = estadoDestino.regiao;
-    const { precoBase, distancia } = this.tabelaPrecoPorRegiao[regiao];
+  calcularEstimativaPrazo(uf: string): {
+    prazoMinimo: number;
+    prazoMaximo: number;
+  } {
+    const ufUpper = uf.toUpperCase();
 
-    // Ajuste do valor do frete baseado no tipo de serviço (normal ou expresso)
-    let precoServico = precoBase;
-    if (tipoServico === 'expresso') {
-      precoServico *= 1.5; // Aumenta 50% para expresso
-    }
-
-    // Cálculo do frete final
-    const frete =
-      this.valorBase +
-      precoServico +
-      peso * this.custoPorPeso +
-      distancia / 100; // Calcula com base na distância (normalizada)
-
-    return frete;
-  }
-
-  // Função de conveniência para obter o frete por sigla e tipo de serviço
-  getFretePorSigla(
-    siglaEstado: string,
-    peso: number,
-    tipoServico: 'normal' | 'expresso'
-  ): number | null {
-    const estado = EstadoEnum.fromSigla(siglaEstado);
-    return estado ? this.calcularFrete(estado, peso, tipoServico) : null;
+    const estimativa = this.tabelaPrazo[ufUpper];
+    return {
+      prazoMinimo: estimativa.min,
+      prazoMaximo: estimativa.max,
+    };
   }
 }

@@ -5,11 +5,13 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 body {
-  background-color: $color-background;
   background: linear-gradient(to bottom, $color-background, $color-tertiary);
   font-family: "Proxima Nova", sans-serif;
   min-height: 100vh;
+  overflow-x: hidden;
+  background-size: cover;
 }

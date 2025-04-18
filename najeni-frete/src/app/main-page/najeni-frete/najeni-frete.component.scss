@@ -38,14 +38,13 @@ body {
   font-size: 1rem !important;
   display: flex;
   justify-content: center;
-  padding: 0.75rem;
-  line-height: 1.5rem;
   font-size: 1.25rem;
 }
 
 .najeni-title {
   color: $color-main;
   font-size: 3.2rem;
+  line-height: 3.5rem;
   font-family: "Montserrat Alternates", sans-serif;
 }
 
@@ -92,13 +91,25 @@ input:-webkit-autofill:active {
 .star {
   display: inline-block;
   width: 3em;
-  height: 1.25em;
+  height: 1em;
   text-align: left;
-  overflow: hidden;
-  font-size: inherit;
   z-index: 10;
 }
 
+mat-form-field {
+  color: $color-paragraph !important;
+  stroke: currentColor;
+  border-color: transparent !important;
+}
+
+::ng-deep
+  .mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline {
+  color: inherit !important;
+}
+
 mat-error {
+  color: inherit !important;
+  font-size: 1rem;
   margin: 5px;
 }

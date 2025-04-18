@@ -1,13 +1,15 @@
 @import "./assets/styles/variables";
 
-body {
-  background-color: $color-background;
-  background: linear-gradient(to bottom, $color-background, $color-tertiary);
-  margin: 0;
-  font-family: "Proxima Nova", sans-serif;
-}
-
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $color-background;
+  background: linear-gradient(to bottom, $color-background, $color-tertiary);
+  font-family: "Proxima Nova", sans-serif;
+  min-height: 100vh;
 }

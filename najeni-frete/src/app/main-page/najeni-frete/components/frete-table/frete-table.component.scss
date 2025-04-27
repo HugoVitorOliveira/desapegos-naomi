@@ -6,12 +6,18 @@ table {
   border-radius: 20px;
   box-shadow: none;
 }
+
+tr.mat-mdc-header-row {
+  height: 2.5rem !important;
+}
+
 table.mat-elevation-z8 th {
   font-weight: bold;
   font-size: 1.1rem;
   font-family: "Agbalumo", sans-serif;
   color: $color-highlight;
   border: 1px solid $color-main;
+  background-color: #0e172c17; // color-paragrapgh com menos opacidade
 }
 
 table.mat-elevation-z8 td {

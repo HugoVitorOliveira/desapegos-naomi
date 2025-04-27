@@ -17,7 +17,12 @@
         <mat-error *ngIf="cepControl.hasError('invalid')" @fadeIn
           >CEP Inválido (｡•́︿•̀｡)</mat-error
         >
-        <button class="najeni-button" @fadeIn (click)="calculateFrete()">
+        <button
+          class="najeni-button"
+          @fadeIn
+          (click)="calculateFrete()"
+          [ngClass]="{ 'fix-button': cepControl.hasError('invalid') }"
+        >
           <span>Calcular Freteˎˊ˗</span>
         </button>
       </div>

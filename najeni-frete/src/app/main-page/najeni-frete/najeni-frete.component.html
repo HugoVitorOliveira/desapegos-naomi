@@ -1,4 +1,4 @@
-<div class="najeni-topper" @slideBottom>
+<div class="najeni-topper" @fadeIn>
   <span> ─── ⋆⋅☆⋅⋆ ───</span>
 </div>
 <div class="najeni-container">
@@ -6,29 +6,21 @@
     <h1 class="najeni-title" @fadeIn>@naomii.desapegos</h1>
     <h3 @fadeIn class="najeni-subtitle">Calcule seu frete aqui 👇</h3>
     <div class="najeni-card">
-      <mat-form-field appearance="outline" @fadeIn class="white-form">
+      <div class="najeni-form-field">
+        <mat-label>Digite seu CEP:</mat-label>
         <input
           cepFormat
           class="najeni-input"
-          matInput
           maxlength="9"
           [formControl]="cepControl"
         />
-        <mat-icon matSuffix>explore</mat-icon>
-        <mat-label>Digite seu CEP:</mat-label>
-        <mat-error *ngIf="cepControl.hasError('invalid')"
+        <mat-error *ngIf="cepControl.hasError('invalid')" @fadeIn
           >CEP Inválido (｡•́︿•̀｡)</mat-error
         >
-      </mat-form-field>
-
-      <button
-        mat-button
-        class="najeni-button"
-        @fadeIn
-        (click)="calculateFrete()"
-      >
-        Calcular Freteˎˊ˗
-      </button>
+        <button class="najeni-button" @fadeIn (click)="calculateFrete()">
+          <span>Calcular Freteˎˊ˗</span>
+        </button>
+      </div>
     </div>
 
     <app-frete-table
@@ -36,12 +28,13 @@
       @fadeIn
       [data]="tableData"
     ></app-frete-table>
+    <!-- <app-frete-table @fadeIn [data]="tableData"></app-frete-table> -->
   </div>
 
   <div class="najeni-footer" @slideBottom>
     <a href="https://www.instagram.com/naomii.desapegos/">
       Para mais informações, manda uma DM <br />
-      ✰ ✰ ✰ @naomii.desapegos ✰ ✰ ✰</a
+      <span>✰ ✰ ✰</span> @naomii.desapegos <span>✰ ✰ ✰</span></a
     >
   </div>
 </div>

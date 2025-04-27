@@ -33,12 +33,33 @@ body {
   flex-shrink: 0;
 }
 
+.najeni-form-field {
+  mat-label {
+    color: $color-highlight !important;
+    font-size: 1rem;
+    margin-left: -180px;
+  }
+
+  mat-error {
+    position: relative;
+    color: $color-main !important;
+    font-size: 0.9rem;
+    margin-left: -180px;
+    margin-right: 42px;
+    top: -10px;
+  }
+}
 .najeni-input {
+  width: 350px;
+  height: 2.5rem;
+  border: none;
+  border-radius: 20px;
   text-align: center;
   display: flex;
   justify-content: center;
   font-size: 1.25rem !important;
-  color: $color-main !important;
+  color: $color-paragraph !important;
+  margin: 0.7rem;
 }
 
 .najeni-title {
@@ -54,13 +75,20 @@ body {
 }
 
 .najeni-button {
-  margin-right: -170px;
-  margin-top: -10px;
+  margin-right: -200px;
+  border: none;
+  border-radius: 20px;
   width: 160px;
   height: 50px;
-  background-color: $color-button-bg;
-  color: $color-button-text !important;
+  background-color: $color-highlight;
+  color: $color-paragraph !important;
+  font-family: "Agbalumo", sans-serif;
   font-size: 1rem !important;
+
+  span {
+    position: relative;
+    top: -2px;
+  }
 }
 
 .najeni-footer {
@@ -76,6 +104,10 @@ body {
   a {
     text-decoration: none !important;
     color: $color-main;
+
+    span {
+      color: $color-highlight;
+    }
   }
 
   i {
@@ -95,83 +127,6 @@ body {
 
   span {
     text-decoration: none !important;
-    color: $color-main;
-  }
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px #707ad8 inset !important;
-  background-color: #707ad8 !important;
-  -webkit-text-fill-color: $color-paragraph !important;
-  font-size: 1.25rem !important;
-  transition: background-color 9999s ease-out, color 9999s ease-out !important;
-}
-
-.star {
-  display: inline-block;
-  width: 3em;
-  height: 1em;
-  text-align: left;
-  z-index: 10;
-}
-
-mat-form-field {
-  width: 330px;
-  color: $color-main !important;
-  stroke: $color-main !important;
-  border-color: transparent !important;
-}
-
-::ng-deep
-  .mat-form-field-appearance-outline.mat-focused
-  .mat-form-field-outline {
-  color: $color-main !important;
-}
-
-mat-error {
-  position: relative;
-  color: inherit !important;
-  font-size: 1rem;
-  margin: 10px;
-  margin-left: -10px;
-}
-
-::ng-deep mat-form-field.white-form {
-  --mdc-outlined-text-field-focus-outline-color: $color-main;
-  --mdc-outlined-text-field-hover-outline-color: $color-main;
-  --mdc-outlined-text-field-outline-color: $color-main;
-  --mdc-outlined-text-field-input-text-color: $color-main;
-  --mdc-outlined-text-field-label-text-color: $color-main;
-
-  .mat-mdc-form-field-error-wrapper,
-  .mat-mdc-form-field-hint-wrapper {
-    color: $color-main;
-  }
-
-  .mat-mdc-form-field-error {
-    color: $color-main;
-  }
-
-  .mdc-notched-outline__notch {
-    border-color: $color-main !important;
-  }
-
-  .mdc-floating-label {
-    color: $color-main !important;
-  }
-
-  .mat-mdc-form-field-icon-suffix {
-    color: $color-main !important;
-  }
-
-  input.mat-mdc-input-element {
-    color: $color-main !important;
-  }
-
-  .ng-invalid {
-    color: $color-main !important;
+    color: $color-highlight;
   }
 }

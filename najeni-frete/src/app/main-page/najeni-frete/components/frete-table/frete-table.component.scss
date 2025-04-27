@@ -1,16 +1,23 @@
+@import "../../../../../assets/styles/variables";
+
 table {
   margin-top: 30px;
   background-color: transparent !important;
+  border-radius: 20px;
   box-shadow: none;
 }
 table.mat-elevation-z8 th {
   font-weight: bold;
   font-size: 1.1rem;
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Agbalumo", sans-serif;
+  color: $color-highlight;
+  border: 1px solid $color-main;
 }
 
 table.mat-elevation-z8 td {
   font-weight: normal;
   font-size: 1rem;
   font-family: "Proxima Nova", sans-serif;
+  color: $color-main;
+  border: 1px solid $color-main;
 }

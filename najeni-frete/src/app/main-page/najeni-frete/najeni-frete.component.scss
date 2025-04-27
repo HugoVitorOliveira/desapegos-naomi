@@ -29,27 +29,33 @@ body {
   flex: 3;
   flex-flow: column wrap;
   margin: 10px;
-  margin-top: 2rem;
+  margin-top: 6rem;
   flex-shrink: 0;
 }
 
 .najeni-input {
   text-align: center;
-  font-size: 1rem !important;
   display: flex;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.25rem !important;
+  color: $color-main !important;
 }
 
 .najeni-title {
   color: $color-main;
   font-size: 3.2rem;
   line-height: 3.5rem;
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Agbalumo", sans-serif;
+}
+
+.najeni-subtitle {
+  color: $color-main;
+  font-size: 1.5rem;
 }
 
 .najeni-button {
-  margin-top: 15px;
+  margin-right: -170px;
+  margin-top: -10px;
   width: 160px;
   height: 50px;
   background-color: $color-button-bg;
@@ -63,13 +69,13 @@ body {
   width: 100%;
   margin-bottom: 30px;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   z-index: 10;
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Agbalumo", sans-serif;
 
   a {
     text-decoration: none !important;
-    color: rgb(85, 26, 139);
+    color: $color-main;
   }
 
   i {
@@ -77,12 +83,28 @@ body {
   }
 }
 
+.najeni-topper {
+  position: fixed;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 2.6rem;
+  z-index: 10;
+
+  span {
+    text-decoration: none !important;
+    color: $color-main;
+  }
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px #dbaedb inset !important;
-  background-color: #dbaedb !important;
+  -webkit-box-shadow: 0 0 0 1000px #707ad8 inset !important;
+  background-color: #707ad8 !important;
   -webkit-text-fill-color: $color-paragraph !important;
   font-size: 1.25rem !important;
   transition: background-color 9999s ease-out, color 9999s ease-out !important;
@@ -97,19 +119,59 @@ input:-webkit-autofill:active {
 }
 
 mat-form-field {
-  color: $color-paragraph !important;
-  stroke: currentColor;
+  width: 330px;
+  color: $color-main !important;
+  stroke: $color-main !important;
   border-color: transparent !important;
 }
 
 ::ng-deep
   .mat-form-field-appearance-outline.mat-focused
   .mat-form-field-outline {
-  color: inherit !important;
+  color: $color-main !important;
 }
 
 mat-error {
+  position: relative;
   color: inherit !important;
   font-size: 1rem;
-  margin: 5px;
+  margin: 10px;
+  margin-left: -10px;
+}
+
+::ng-deep mat-form-field.white-form {
+  --mdc-outlined-text-field-focus-outline-color: $color-main;
+  --mdc-outlined-text-field-hover-outline-color: $color-main;
+  --mdc-outlined-text-field-outline-color: $color-main;
+  --mdc-outlined-text-field-input-text-color: $color-main;
+  --mdc-outlined-text-field-label-text-color: $color-main;
+
+  .mat-mdc-form-field-error-wrapper,
+  .mat-mdc-form-field-hint-wrapper {
+    color: $color-main;
+  }
+
+  .mat-mdc-form-field-error {
+    color: $color-main;
+  }
+
+  .mdc-notched-outline__notch {
+    border-color: $color-main !important;
+  }
+
+  .mdc-floating-label {
+    color: $color-main !important;
+  }
+
+  .mat-mdc-form-field-icon-suffix {
+    color: $color-main !important;
+  }
+
+  input.mat-mdc-input-element {
+    color: $color-main !important;
+  }
+
+  .ng-invalid {
+    color: $color-main !important;
+  }
 }

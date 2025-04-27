@@ -3,9 +3,9 @@
 </div>
 <div class="najeni-container">
   <div>
-    <h1 class="najeni-title" @fadeIn>@naomii.desapegos</h1>
-    <h3 @fadeIn class="najeni-subtitle">Calcule seu frete aqui 👇</h3>
     <div class="najeni-card">
+      <h1 class="najeni-title" @fadeIn>@naomii.desapegos</h1>
+      <h3 @fadeIn class="najeni-subtitle">Calcule seu frete aqui 👇</h3>
       <div class="najeni-form-field">
         <mat-label>Digite seu CEP:</mat-label>
         <input
@@ -21,14 +21,12 @@
           <span>Calcular Freteˎˊ˗</span>
         </button>
       </div>
+      <app-frete-table
+        *ngIf="tableData.length >= 1"
+        @fadeIn
+        [data]="tableData"
+      ></app-frete-table>
     </div>
-
-    <app-frete-table
-      *ngIf="tableData.length >= 1"
-      @fadeIn
-      [data]="tableData"
-    ></app-frete-table>
-    <!-- <app-frete-table @fadeIn [data]="tableData"></app-frete-table> -->
   </div>
 
   <div class="najeni-footer" @slideBottom>

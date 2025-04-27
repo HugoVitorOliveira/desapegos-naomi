@@ -64,14 +64,14 @@ body {
 
 .najeni-title {
   color: $color-main;
-  font-size: 3.2rem;
+  font-size: 2.2rem;
   line-height: 3.5rem;
   font-family: "Agbalumo", sans-serif;
 }
 
 .najeni-subtitle {
   color: $color-main;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .najeni-button {
@@ -120,13 +120,18 @@ body {
   top: 0;
   height: 30px;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
-  font-size: 2.6rem;
+  font-size: 2rem;
   z-index: 10;
 
   span {
     text-decoration: none !important;
     color: $color-highlight;
   }
+}
+
+app-frete-table {
+  position: fixed;
+  bottom: 130px;
 }
